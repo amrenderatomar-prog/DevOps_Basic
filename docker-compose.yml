@@ -2,7 +2,7 @@ services:
 
   proxy:
     image: nginx:alpine
-    container_name: DevOps-proxy
+    container_name: secure-crud-proxy
     restart: always
     ports:
       - "80:80"
@@ -14,7 +14,7 @@ services:
 
   app:
     build: .
-    container_name: DevOps-app
+    container_name: secure-crud-app
     restart: always
     env_file:
       - .env
@@ -29,7 +29,7 @@ services:
 
   db:
     image: postgres:18.1
-    container_name: DevOps-db
+    container_name: secure-crud-db
     restart: always
     env_file:
       - .env

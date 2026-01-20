@@ -21,14 +21,14 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-app:latest .
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/securecrud-app:latest .
 
       - name: Tag image
         run: |
-          docker tag ${{ secrets.DOCKER_USERNAME }}/devops-app:latest \
-          ${{ secrets.DOCKER_USERNAME }}/devops-app:${{ github.sha }}
+          docker tag ${{ secrets.DOCKER_USERNAME }}/securecrud-app:latest \
+          ${{ secrets.DOCKER_USERNAME }}/securecrud-app:${{ github.sha }}
 
       - name: Push images
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops-app:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/securecrud-app:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/securecrud-app:${{ github.sha }}
